@@ -1,32 +1,72 @@
-const int buttonPinSemCapa = 7;
-const int buttonPinComCapa = 6;
-const int ledPinSemCapa = 8;
-const int ledPinComCapa = 9;
+const int player1 = 10;
+const int player2 = 2;
+const int opcaoA = 3;
+const int opcaoB = 4;
+const int opcaoC = 5;
+const int opcaoD = 6;
+const int ledPlayer1 = 8;
+const int ledPlayer2 = 9;
 
 void setup() { 
   Serial.begin(9600);
 
-  pinMode(buttonPinSemCapa, INPUT); 
-  pinMode(buttonPinComCapa, INPUT); 
-  pinMode(ledPinSemCapa, OUTPUT);
-  pinMode(ledPinComCapa, OUTPUT);
+  pinMode(player1, INPUT); 
+  pinMode(player2, INPUT); 
+  pinMode(opcaoA, INPUT); 
+  pinMode(opcaoB, INPUT); 
+  pinMode(opcaoC, INPUT); 
+  pinMode(opcaoD, INPUT); 
+  pinMode(ledPlayer1, OUTPUT);
+  pinMode(ledPlayer2, OUTPUT);
+  
   
 }
 
 void loop() { 
-  if(digitalRead(buttonPinSemCapa)==HIGH) {
-    Serial.println("LEFT"); 
-    digitalWrite(ledPinSemCapa, HIGH); 
+  
+
+  if(digitalRead(player1)==HIGH) {
+    Serial.println(1); 
+    Serial.flush();
+    digitalWrite(ledPlayer1, HIGH); 
     delay(3000);
   }else{ 
-    digitalWrite(ledPinSemCapa, LOW); 
+    digitalWrite(ledPlayer1, LOW); 
+    Serial.flush();
   } 
 
-  if(digitalRead(buttonPinComCapa)==HIGH) {
-    Serial.println("RIGHT"); 
-    digitalWrite(ledPinComCapa, HIGH); 
+  if(digitalRead(player2)==HIGH) {
+    Serial.println(2); 
+    Serial.flush();
+    digitalWrite(ledPlayer2, HIGH); 
+    
     delay(3000);
   }else{ 
-    digitalWrite(ledPinComCapa, LOW); 
+    digitalWrite(ledPlayer2, LOW); 
   } 
+
+  if(digitalRead(opcaoA)==HIGH) {
+    Serial.println(3); 
+    Serial.flush();    
+    delay(3000);
+  }
+  
+  if(digitalRead(opcaoB)==HIGH) {
+    Serial.println(4); 
+    Serial.flush();    
+    delay(3000);
+  }
+  
+  if(digitalRead(opcaoC)==HIGH) {
+    Serial.println(5); 
+    Serial.flush();    
+    delay(3000);
+  }
+  
+  if(digitalRead(opcaoD)==HIGH) {
+    Serial.println(6); 
+    Serial.flush();    
+    delay(3000);
+  }
+  
 }
